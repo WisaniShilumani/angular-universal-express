@@ -1,39 +1,40 @@
 {
-  "name": "angular-universal-express",
+  "name": "angular7-universal-express",
   "version": "0.0.3",
   "description": "",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "build": "../node_modules/.bin/tsc && cp package.json dist/packages-dist"
+    "build": "tsc && cp package.json ../dist/packages-dist"
   },
   "keywords": [
     "angular",
     "ssr",
     "express"
   ],
-  "author": "David East",
+  "author": "Wisani Shilumani",
   "license": "MIT",
   "dependencies": {
     "@types/express": "^4.0.36",
-    "express": "^4.15.3"
+    "express": "^4.16.3"
   },
   "peerDependencies": {
-    "@angular/animations": "^4.2.4",
-    "@angular/common": "^4.2.4",
-    "@angular/compiler": "^4.2.4",
-    "@angular/core": "^4.2.4",
-    "@angular/forms": "^4.2.4",
-    "@angular/http": "^4.2.4",
-    "@angular/platform-browser": "^4.2.4",
-    "@angular/platform-browser-dynamic": "^4.2.4",
-    "@angular/platform-server": "^4.3.3",
-    "@angular/router": "^4.2.4",
-    "core-js": "^2.4.1",
-    "rxjs": "^5.4.2",
-    "zone.js": "^0.8.14"
+    "@angular/animations": "^7.0.3",
+    "@angular/common": "^7.0.3",
+    "@angular/compiler": "^7.0.3",
+    "@angular/core": "^7.0.3",
+    "@angular/forms": "^7.0.3",
+    "@angular/http": "^7.0.3",
+    "@angular/platform-browser": "^7.0.3",
+    "@angular/platform-browser-dynamic": "^7.0.3",
+    "@angular/platform-server": "^7.1.2",
+    "@angular/router": "^7.0.3",
+    "core-js": "^2.5.7",
+    "rxjs": "^6.3.0",
+    "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "typescript": "^2.4.2"
+    "typescript": "^3.2.2"
   }
 }
