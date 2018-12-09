@@ -1,6 +1,6 @@
 {
   "name": "angular7-universal-express",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "main": "index.js",
   "types": "index.d.ts",
@@ -36,6 +36,6 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "typescript": "^3.2.2"
+    "typescript": "^3.1.6"
   }
 }
