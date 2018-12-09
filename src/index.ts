@@ -3,7 +3,8 @@ import * as express from 'express';
 import { enableProdMode as enableProd } from '@angular/core';
 import { renderModuleFactory } from '@angular/platform-server';
 import * as fs from 'fs';
-import { Observable, Observer } from 'rxjs';
+import { Observable, Observer, from } from 'rxjs';
+import { mergeMap, take } from 'rxjs/operators';
 
 export interface ServerConfiguration {
   main: string;
@@ -37,12 +38,14 @@ export function angularUniversal({ index, main, staticDirectory, enableProdMode 
   if (enableProdMode) { enableProd(); }
   return (req: express.Request, res: express.Response) => {
     readFile$(index)
-      .mergeMap(document => {
-        const url = req.path;
-        const AppServerModuleNgFactory = require(main).AppServerModuleNgFactory;
-        return Observable.from(renderModuleFactory(AppServerModuleNgFactory, { document, url }))
-      })
-      .take(1)
+      .pipe(
+        mergeMap(document => {
+          const url = req.path;
+          const AppServerModuleNgFactory = require(main).AppServerModuleNgFactory;
+          return from(renderModuleFactory(AppServerModuleNgFactory, { document, url }))
+        }),
+        take(1)
+      )
       .subscribe(html => { res.send(html); });
   };
 }
